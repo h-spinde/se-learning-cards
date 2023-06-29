@@ -37,6 +37,7 @@ public class ConsoleGame {
         System.out.printf("%s\t","  Your Answer: ");
         String line = scanner.nextLine();
         System.out.printf("%s\t%s\n","  Solution: ", card.getBackContent().get(0));
+        card.upCounter();
       }
     } catch (IllegalStateException | NoSuchElementException e) {
       System.out.println("System.in was closed");
