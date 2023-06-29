@@ -107,14 +107,14 @@ public class TxtLoader {
    public static SimpleCard makeSimpleCard(List<String> list, int begin, int end)
    {
        String[] myString = makeSimpleArray(list, begin, end);
-       SimpleCard newCard = new SimpleCard(myString[0], myString[1]);
+       SimpleCard newCard = new SimpleCard(myString[0], myString[1], Integer.parseInt(list.get(end-2)));
        return newCard;
    }
    
    public static QuestionCard makeQuestionCard(List<String> list, int begin, int end)
    {
        String[] myString = makeQuestionArray(list, begin, end);
-       QuestionCard newCard = new QuestionCard(myString[0], myString[1], myString[2]);
+       QuestionCard newCard = new QuestionCard(myString[0], myString[1], myString[2], Integer.parseInt(list.get(end-2)));
        return newCard;
    }
    

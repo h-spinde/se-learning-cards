@@ -33,18 +33,19 @@ public class TxtGenerator {
      if (card.getClass().getSimpleName().equals("SimpleCard")) { r += simpleTxt(card); }
      else if (card.getClass().getSimpleName().equals("QuestionCard")) { r += questionTxt(card); }
      else { System.out.println("There's an error with the card type! It is " + card.getClass().getSimpleName()); }
+     r += card.getCounter() + "\n\n";
      return r;
   }
   
   public String simpleTxt (LearningCard card)
   {
-      String m = "#" + card.getFrontContent().get(0) + "\n#" + card.getBackContent().get(0) + "\n\n";
+      String m = "#" + card.getFrontContent().get(0) + "\n#" + card.getBackContent().get(0) + "\n";
       return m;
   }
   
   public String questionTxt(LearningCard card)
   {
-      String m = "#" + card.getFrontContent().get(0) + "\n#" + card.getFrontContent().get(1) + "\n#" + card.getBackContent().get(0) + "\n\n";
+      String m = "#" + card.getFrontContent().get(0) + "\n#" + card.getFrontContent().get(1) + "\n#" + card.getBackContent().get(0) + "\n";
       return m;
   }
   
