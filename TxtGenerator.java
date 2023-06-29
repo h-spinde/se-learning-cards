@@ -6,10 +6,11 @@ public class TxtGenerator {
   public void createTxtFile(List<LearningCard> cards, String output_file) {
     String inp = writeTxt(cards);
     try {
-      FileWriter myWriter = new FileWriter(output_file + ".txt");
+      FileWriter myWriter = new FileWriter(output_file);
       myWriter.write(inp);
       myWriter.close();
-      System.out.println("Successfully wrote to the file.");
+      System.out.println("");
+      System.out.println("Completion successfull!");
     } catch (IOException e) {
       System.out.println("An error occurred.");
       e.printStackTrace();
@@ -21,9 +22,9 @@ public class TxtGenerator {
     String m = "THIS FILE is meant to be read for the Console LearningCard Game only\n\n";
     for(int i = 0; i < cards.size(); i++)
     {
-        m += createTxtCard(cards.get(i));
+        m += createTxtCard(cards.get(i)) + "\n\n";
     }
-    m += "\n";
+    //m += "\n";
     return m;
   }
   
@@ -33,7 +34,7 @@ public class TxtGenerator {
      if (card.getClass().getSimpleName().equals("SimpleCard")) { r += simpleTxt(card); }
      else if (card.getClass().getSimpleName().equals("QuestionCard")) { r += questionTxt(card); }
      else { System.out.println("There's an error with the card type! It is " + card.getClass().getSimpleName()); }
-     r += card.getCounter() + "\n\n";
+     r += card.getCounter(); //+ "\n\n";
      return r;
   }
   

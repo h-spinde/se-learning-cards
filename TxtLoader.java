@@ -65,7 +65,7 @@ public class TxtLoader {
        }
        myString[1] = (list.get(begin)).replace(String.valueOf("#"), "");
        begin ++;
-       while (begin < end-1)
+       while (begin < end-2)
        {
             myString[1] += "\n" + list.get(begin);
             begin ++;
@@ -96,7 +96,7 @@ public class TxtLoader {
        }
        myString[2] = (list.get(begin)).replace(String.valueOf("#"), "");
        begin ++;
-       while (begin < end-1)
+       while (begin < end-2)
        {
             myString[2] += "\n" + list.get(begin);
             begin ++;
