@@ -26,7 +26,7 @@ public class ConsoleGame {
     return progressBar;
   }
   
-  public void printCardToConsole(List<LearningCard> cards) {
+  public void printCardsToConsole(List<LearningCard> cards) {
     Scanner scanner = new Scanner(System.in);
     int s = cards.size();
     try {
@@ -43,11 +43,17 @@ public class ConsoleGame {
     }
   }
   
+  public void play(String filename) {
+    List<LearningCard> fileCards = new ArrayList();
+    fileCards = TxtLoader.loadCardFile("/home/uni/Documents/se/semesterprojekt/se-learning-cards/example.txt");
+    printCardsToConsole(fileCards);
+    TxtGenerator txt = new TxtGenerator();
+    txt.createTxtFile(fileCards, filename);
+  }
+  
   public static void main(String[] args) {
 
-        List<LearningCard> fileCards = new ArrayList();
-        fileCards = MarkdownLoader.loadCardFile("cards.md");
-        ConsoleGame h = new ConsoleGame();
-        h.printCardToConsole(fileCards);
+        ConsoleGame fun = new ConsoleGame();
+        fun.play("example.txt");
     }
 }
