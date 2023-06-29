@@ -93,7 +93,8 @@ public class MarkdownLoader {
        myString[0] = (list.get(begin)).replace(String.valueOf("# "), "");
        begin ++;
        myString[1] = list.get(begin);
-       while (begin < end)
+       begin ++;
+       while (begin < end-1)
        {
             if ((list.get(begin)).compareTo("") != 0)
             {
