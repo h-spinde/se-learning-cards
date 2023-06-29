@@ -1,14 +1,15 @@
 import java.util.*;
 
 public class ConsoleGame {
-  public void printCardToConsole(LearningCard card) {
+  public void printCardToConsole(List<LearningCard> cards) {
     Scanner scanner = new Scanner(System.in);
     try {
       for (int i = 0; i < 1; i++) {
-        System.out.println(card.getFrontContent());
-        System.out.println("Do you want to see the solution?");
+        LearningCard card = cards.get(i);
+        System.out.println("Question: " + card.getFrontContent());
+        System.out.print("Your Answer: ");
         String line = scanner.nextLine();
-        System.out.println(card.getBackContent());
+        System.out.println("Solution: " + card.getBackContent());
       }
     } catch (IllegalStateException | NoSuchElementException e) {
       System.out.println("System.in was closed");
@@ -19,7 +20,7 @@ public class ConsoleGame {
 
         List<LearningCard> fileCards = new ArrayList();
         fileCards = MarkdownLoader.loadCardFile("cards.md");
-        PlayInConsole h = new PlayInConsole();
-        h.printCardToConsole(fileCards.get(0));
+        ConsoleGame h = new ConsoleGame();
+        h.printCardToConsole(fileCards);
     }
 }
