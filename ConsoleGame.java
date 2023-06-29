@@ -32,7 +32,7 @@ public class ConsoleGame {
     try {
       for (int i = 0; i < s; i++) {
         LearningCard card = cards.get(i);
-        System.out.printf("\n%s %s\t\t%s %d/%d\n", "Card:", getTitle(card, i), makeProgressBar(i, s), i, s-1);
+        System.out.printf("\n%s %s\t\t%s %d/%d %s %d%s\n", "Card:", getTitle(card, i), makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
         System.out.printf("%s\t%s\n", "  Question: ", card.getFrontContent().get(0));
         System.out.printf("%s\t","  Your Answer: ");
         String line = scanner.nextLine();
