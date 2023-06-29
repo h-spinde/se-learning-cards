@@ -36,7 +36,6 @@ public class HTMLCardGenerator {
      String r = "<h1>";
      if (card.getClass().getSimpleName().equals("SimpleCard")) { r += simpleHTML(card); }
      else if (card.getClass().getSimpleName().equals("QuestionCard")) { r += questionHTML(card); }
-     else if (card.getClass().getSimpleName().equals("ChoiceCard")) { r += choiceHTML(card); }
      else { System.out.println("There's an error with the card type! It is " + card.getClass().getSimpleName()); }
      return r;
   }
@@ -78,24 +77,12 @@ public class HTMLCardGenerator {
       return m;
   }
   
-  public String choiceHTML(LearningCard card)
-  {
-      return questionHTML(card);
-  }
-  
   public static void main(String[] args) {
 
-        //List<String> fileContent = new ArrayList<>(Arrays.asList(strArr));
+
         List<LearningCard> fileCards = new ArrayList();
-        /**try {
-            fileCards = MarkdownLoader.loadCardFile("cards.md");
-        }
-        catch(IOException e) {
-            e.printStackTrace();
-        }**/
         fileCards = MarkdownLoader.loadCardFile("cards.md");
         HTMLCardGenerator h = new HTMLCardGenerator();
         h.createHTMLCards(fileCards, "example");
-        //System.out.print(string);
     }
 }
