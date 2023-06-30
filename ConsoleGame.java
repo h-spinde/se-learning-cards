@@ -65,8 +65,7 @@ public class ConsoleGame {
   }
   
   public static void main(String[] args) {
-
-        ConsoleGame fun = new ConsoleGame();
-        fun.play("example.txt");
-    }
+    ConsoleGame fun = new ConsoleGame();
+      fun.play("example.txt");
+  }
 }
