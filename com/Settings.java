@@ -71,21 +71,43 @@ public class Settings {
       String mdfile = scanner.nextLine();
       System.out.print("Please enter the Save File you want to add to: ");
       String oldfile = scanner.nextLine();
-    List<LearningCard> fileCards = new ArrayList();
-    fileCards = SaveFileLoader.loadCardFile("./saveFiles/" + oldfile);
-    fileCards.addAll(MarkdownLoader.loadCardFile("./markdownFiles/" + mdfile));
-    SaveFileGenerator make = new SaveFileGenerator();
-    make.createSaveFile(fileCards, "./saveFiles/" + oldfile);
+      List<LearningCard> fileCards = new ArrayList();
+      fileCards = SaveFileLoader.loadCardFile("./saveFiles/" + oldfile);
+      fileCards.addAll(MarkdownLoader.loadCardFile("./markdownFiles/" + mdfile));
+      SaveFileGenerator make = new SaveFileGenerator();
+      make.createSaveFile(fileCards, "./saveFiles/" + oldfile);
     } catch (IllegalStateException | NoSuchElementException e) {
       System.out.println("System.in was closed");
     }
   }
   
   public void addViaTerminal() {
-    System.out.println("This is where you get to add to an existing file using the terminal!");
+    Scanner scanner = new Scanner(System.in);
+    boolean more = true;
+    try {
+      System.out.print("Please enter the Save File you want to add to: ");
+      String oldfile = scanner.nextLine();
+      List<LearningCard> fileCards = new ArrayList();
+      fileCards = SaveFileLoader.loadCardFile("./saveFiles/" + oldfile);
+      while (more) {
+        System.out.print("Do you want to add another card? [y/N] ");
+        String line = scanner.nextLine();
+        if ((line.equals("y")) || (line.equals("Y"))) {
+          LearningCard card = addCard();
+          fileCards.add(card);
+        }
+        else {
+          more = false;
+        }
+      }
+      SaveFileGenerator make = new SaveFileGenerator();
+      make.createSaveFile(fileCards, "./saveFiles/" + oldfile);
+    } catch (IllegalStateException | NoSuchElementException e) {
+      System.out.println("System.in was closed");
+    }
   }
 
-  public void addNewFile() {
+  public void newFile() {
     Scanner scanner = new Scanner(System.in);
     try {
       System.out.println("Do you want to generate a file from Markdown or in the Terminal? [m/t]");
@@ -100,15 +122,30 @@ public class Settings {
     }
   }
   
+  public void addToFile() {
+    Scanner scanner = new Scanner(System.in);
+    try {
+      System.out.println("Do you want to add cards from a Markdown file or in the Terminal? [m/t]");
+      String line = scanner.nextLine();
+      if ((line.equals("m")) || (line.equals("M"))) {
+        addViaMarkdown();
+      } else if ((line.equals("t")) || (line.equals("T"))) {
+        addViaTerminal();
+      }
+    } catch (IllegalStateException | NoSuchElementException e) {
+      System.out.println("System.in was closed");
+    }
+  }
+  
   public void settingsMenu() {
     Scanner scanner = new Scanner(System.in);
     try {
       System.out.println("Do you want to create a new file or add to an existing one? [new/add]");
       String line = scanner.nextLine();
       if ((line.equals("new")) || (line.equals("New"))) {
-        addNewFile();
+        newFile();
       } else if ((line.equals("add")) || (line.equals("Add"))) {
-        addViaMarkdown();
+        addToFile();
       }
     } catch (IllegalStateException | NoSuchElementException e) {
       System.out.println("System.in was closed");
