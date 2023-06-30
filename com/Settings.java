@@ -21,17 +21,21 @@ public class Settings {
   }
   
   public LearningCard addCard() {
-  
-  //TODO: ADD support for QuestionsCard Cards
     Scanner scanner = new Scanner(System.in);
-    SimpleCard newCard = new SimpleCard("This card failed", "This card failed");
+    LearningCard newCard = new SimpleCard("This card failed!", "This card failed!");
     try {
       List<LearningCard> fileCards = new ArrayList();
+      System.out.println("Please enter the new card's title - if you want one:");
+      String title = scanner.nextLine();
       System.out.println("Please enter the new card's front matter:");
       String front = scanner.nextLine();
       System.out.println("Please enter the new card's back matter:");
       String back = scanner.nextLine();
-      newCard = new SimpleCard(front, back);
+      if (title.equals("")) {
+        newCard = new SimpleCard(front, back);
+      } else {
+        newCard = new QuestionCard(title, front, back);
+      }
     } catch (IllegalStateException | NoSuchElementException e) {
       System.out.println("System.in was closed");
     }
