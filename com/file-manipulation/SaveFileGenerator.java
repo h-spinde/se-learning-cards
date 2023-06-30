@@ -1,6 +1,9 @@
+package fileManipulation;
+
 import java.util.*;
 import java.io.*;
 import java.nio.*;
+import cards.*;
 
 public class SaveFileGenerator {
   public void createSaveFile(List<LearningCard> cards, String output_file) {

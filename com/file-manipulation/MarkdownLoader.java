@@ -1,9 +1,12 @@
+package fileManipulation;
+
 import java.util.*;
 import java.io.*;
 import java.util.Collections;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.List;
+import cards.*;
 
 public class MarkdownLoader {
 

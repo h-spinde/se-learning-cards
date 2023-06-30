@@ -1,3 +1,5 @@
+package fileManipulation.html;
+
 import java.util.List;
 import java.io.IOException;
 import java.io.FileWriter;
@@ -5,6 +7,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import cards.*;
+import fileManipulation.*;
+
+package fileManipulation.html;
 
 public class HTMLCardGenerator {
   public void createHTMLCards(List<LearningCard> cards, String output_file) {
