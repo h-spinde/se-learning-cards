@@ -58,12 +58,16 @@ public class ConsoleGame {
     }
   }
   
-  public void play(String filename) {
+  public void play(String oldfile, String newfile) {
     List<LearningCard> fileCards = new ArrayList();
-    fileCards = SaveFileLoader.loadCardFile("/home/uni/Documents/se/semesterprojekt/se-learning-cards/example");
+    fileCards = SaveFileLoader.loadCardFile("./saveFiles/" + oldfile);
     printCardsToConsole(fileCards);
     SaveFileGenerator newFile = new SaveFileGenerator();
-    newFile.createSaveFile(fileCards, filename);
+    newFile.createSaveFile(fileCards, "./saveFiles/" + newfile);
+  }
+  
+  public void play(String filename) {
+    play(filename, filename);
   }
   
   public static void main(String[] args) {
