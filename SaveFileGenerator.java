@@ -2,9 +2,9 @@ import java.util.*;
 import java.io.*;
 import java.nio.*;
 
-public class TxtGenerator {
-  public void createTxtFile(List<LearningCard> cards, String output_file) {
-    String inp = writeTxt(cards);
+public class SaveFileGenerator {
+  public void createSaveFile(List<LearningCard> cards, String output_file) {
+    String inp = writeSaveFile(cards);
     try {
       FileWriter myWriter = new FileWriter(output_file);
       myWriter.write(inp);
@@ -17,20 +17,20 @@ public class TxtGenerator {
     }
   }
   
-  public String writeTxt(List<LearningCard> cards) {
+  public String writeSaveFile(List<LearningCard> cards) {
     String m = "THIS FILE is meant to be read for the Console LearningCard Game only\n\n";
     for(int i = 0; i < cards.size(); i++) {
-      m += createTxtCard(cards.get(i)) + "\n\n";
+      m += createCard(cards.get(i)) + "\n\n";
     }
     return m;
   }
   
-  public String createTxtCard(LearningCard card) {
+  public String createCard(LearningCard card) {
     String r = "##" + card.getClass().getSimpleName() + "\n";
    if (card.getClass().getSimpleName().equals("SimpleCard")) {
-     r += simpleTxt(card);
+     r += simpleSave(card);
    } else if (card.getClass().getSimpleName().equals("QuestionCard")) {
-     r += questionTxt(card);
+     r += questionSave(card);
    } else {
      System.out.println("There's an error with the card type! It is " + card.getClass().getSimpleName());
    }
@@ -38,13 +38,13 @@ public class TxtGenerator {
    return r;
   }
   
-  public String simpleTxt (LearningCard card) {
+  public String simpleSave (LearningCard card) {
     String m = "#" + card.getFrontContent().get(0) + "\n#";
     m += card.getBackContent().get(0) + "\n";
     return m;
   }
   
-  public String questionTxt(LearningCard card) {
+  public String questionSave(LearningCard card) {
     String m = "#" + card.getFrontContent().get(0) + "\n#";
     m += card.getFrontContent().get(1) + "\n#";
     m += card.getBackContent().get(0) + "\n";
@@ -54,7 +54,7 @@ public class TxtGenerator {
   public static void main(String[] args) {
     List<LearningCard> fileCards = new ArrayList();
     fileCards = MarkdownLoader.loadCardFile("cards.md");
-    TxtGenerator h = new TxtGenerator();
-    h.createTxtFile(fileCards, "example.txt");
+    SaveFileGenerator h = new SaveFileGenerator();
+    h.createSaveFile(fileCards, "example");
   }
 }

@@ -19,7 +19,7 @@ public class ConsoleGame {
       System.out.printf("\n%s %s\t\t%s %d/%d %s %d%s\n", "Card:", title, makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
     } else if (card.getClass().getSimpleName().equals("QuestionCard")) {
       String title = card.getFrontContent().get(0);
-      System.out.printf("\n%s %s\t%s %d/%d %s %d%s\n", "Card:", title, makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
+      System.out.printf("\n%s %s%s %d/%d %s %d%s\n", "Card:", title, makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
     } else {
      System.out.printf("Unknown Card Type");
     }
@@ -58,14 +58,14 @@ public class ConsoleGame {
   
   public void play(String filename) {
     List<LearningCard> fileCards = new ArrayList();
-    fileCards = TxtLoader.loadCardFile("/home/uni/Documents/se/semesterprojekt/se-learning-cards/example.txt");
+    fileCards = SaveFileLoader.loadCardFile("/home/uni/Documents/se/semesterprojekt/se-learning-cards/example");
     printCardsToConsole(fileCards);
-    TxtGenerator txt = new TxtGenerator();
-    txt.createTxtFile(fileCards, filename);
+    SaveFileGenerator newFile = new SaveFileGenerator();
+    newFile.createSaveFile(fileCards, filename);
   }
   
   public static void main(String[] args) {
     ConsoleGame fun = new ConsoleGame();
-      fun.play("example.txt");
+      fun.play("example");
   }
 }

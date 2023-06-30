@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.List;
 
-public class TxtLoader {
+public class SaveFileLoader {
 
   public static List<String> readFile(String file_path) {
     List<String> myList = new ArrayList<>();
@@ -127,7 +127,7 @@ public class TxtLoader {
 
   // ---------------------------------------------------- //
   public static void main(String[] args) {
-    List<LearningCard> myList = loadCardFile("/home/uni/Documents/se/semesterprojekt/se-learning-cards/example.txt");
+    List<LearningCard> myList = loadCardFile("/home/uni/Documents/se/semesterprojekt/se-learning-cards/example");
     for (int i = 0; i < myList.size(); i++) {
       (myList.get(i)).printToConsole();
     }
