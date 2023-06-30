@@ -30,10 +30,12 @@ public class SaveFileLoader {
   }
    
   public static int whichCard(List<String> list, int begin, int end) {
-    if ((list.get(begin)).equals("#SimpleCard")) {
-      return 0;
-    } else {
+    if ((list.get(begin)).equals("##SimpleCard")) {
       return 1;
+    } else if ((list.get(begin)).equals("##QuestionCard")) {
+      return 2;
+    } else {
+      return 0;
     }
   }
    
