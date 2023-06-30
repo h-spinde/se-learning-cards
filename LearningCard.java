@@ -22,9 +22,14 @@ public abstract class LearningCard {
   */
   public abstract void printToConsole();
     
-  public abstract void upCounter();
+  public void upCounter() {
+    this.counter ++;
+  }
     
-  public abstract int getCounter();
+  public int getCounter() {
+    return this.counter;
+  }
+  
 }
 
 // ------------------------------------------------------ //
@@ -69,15 +74,7 @@ class SimpleCard extends LearningCard {
     System.out.println("the front matter is: " + this.front);
     System.out.println("the back matter is: " + this.back);
   }
-    
-  public void upCounter() {
-    this.counter ++;
-  }
-    
-  public int getCounter() {
-    return this.counter;
-  }
-    
+  
 }
 
 // ------------------------------------------------------ //
@@ -127,14 +124,6 @@ class QuestionCard extends LearningCard {
     System.out.println("the title of this card is: " + this.title);
     System.out.println("the front matter is: " + this.front);
     System.out.println("the back matter is: " + this.back);
-  }
-    
-  public void upCounter() {
-    this.counter ++;
-  }
-    
-  public int getCounter() {
-    return this.counter;
   }
     
 }
