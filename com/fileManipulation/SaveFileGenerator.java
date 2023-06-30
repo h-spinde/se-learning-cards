@@ -54,6 +54,14 @@ public class SaveFileGenerator {
     return m;
   }
   
+  public void saveFileFromMarkdown(String mdPath, String newPath) {
+    List<LearningCard> fileCards = new ArrayList();
+    fileCards = MarkdownLoader.loadCardFile(mdPath);
+    SaveFileGenerator h = new SaveFileGenerator();
+    h.createSaveFile(fileCards, newPath);
+  }
+  
+  
   public static void main(String[] args) {
     List<LearningCard> fileCards = new ArrayList();
     fileCards = MarkdownLoader.loadCardFile("cards.md");
