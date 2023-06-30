@@ -56,6 +56,6 @@ public class TxtGenerator {
         List<LearningCard> fileCards = new ArrayList();
         fileCards = MarkdownLoader.loadCardFile("cards.md");
         TxtGenerator h = new TxtGenerator();
-        h.createTxtFile(fileCards, "example");
+        h.createTxtFile(fileCards, "example.txt");
     }
 }
