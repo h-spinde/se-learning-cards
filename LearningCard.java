@@ -30,6 +30,16 @@ public abstract class LearningCard {
     return this.counter;
   }
   
+  public String removeEmptyLine(String myString) {
+    while (myString.startsWith("\n")) {
+      myString = myString.substring(1);
+    }
+    while (myString.endsWith("\n")) {
+      myString = myString.substring(0, myString.length()-1);
+    }
+    return myString;
+  }
+  
 }
 
 // ------------------------------------------------------ //
@@ -40,14 +50,14 @@ class SimpleCard extends LearningCard {
   private int counter;
     
   SimpleCard(String question, String answer) {
-    this.front = question;
-    this.back = answer;
+    this.front = removeEmptyLine(question);
+    this.back = removeEmptyLine(answer);
     this.counter = 0;
   }
     
   SimpleCard(String question, String answer, int count) {
-    this.front = question;
-    this.back = answer;
+    this.front = removeEmptyLine(question);
+    this.back = removeEmptyLine(answer);
     this.counter = count;
   }
     
@@ -86,16 +96,16 @@ class QuestionCard extends LearningCard {
   private int counter = 0;
     
   QuestionCard(String ttl, String question, String answer) {
-    this.title = ttl;
-    this.front = question;
-    this.back = answer;
+    this.title = removeEmptyLine(ttl);
+    this.front = removeEmptyLine(question);
+    this.back = removeEmptyLine(answer);
     this.counter = 0;
   }
     
   QuestionCard(String ttl, String question, String answer, int count) {
-    this.title = ttl;
-    this.front = question;
-    this.back = answer;
+    this.title = removeEmptyLine(ttl);
+    this.front = removeEmptyLine(question);
+    this.back = removeEmptyLine(answer);
     this.counter = count;
   }
     
@@ -125,9 +135,4 @@ class QuestionCard extends LearningCard {
     System.out.println("the front matter is: " + this.front);
     System.out.println("the back matter is: " + this.back);
   }
-    
 }
-
-// ------------------------------------------------------ //
-// -------------- ToDo: add your own card --------------- //
-// ------------------------------------------------------ //
