@@ -21,6 +21,8 @@ public class Settings {
   }
   
   public LearningCard addCard() {
+  
+  //TODO: ADD support for QuestionsCard Cards
     Scanner scanner = new Scanner(System.in);
     SimpleCard newCard = new SimpleCard("This card failed", "This card failed");
     try {
@@ -62,7 +64,21 @@ public class Settings {
   }
   
   public void addViaMarkdown() {
-    System.out.println("This is where you get to add to an existing file using Markdown!");
+    Scanner scanner = new Scanner(System.in);
+    try {
+      System.out.println("Please make sure there is a properly formatted Markdown file in the folder markdownFiles.");
+      System.out.print("Please enter the file name: ");
+      String mdfile = scanner.nextLine();
+      System.out.print("Please enter the Save File you want to add to: ");
+      String oldfile = scanner.nextLine();
+    List<LearningCard> fileCards = new ArrayList();
+    fileCards = SaveFileLoader.loadCardFile("./saveFiles/" + oldfile);
+    fileCards.addAll(MarkdownLoader.loadCardFile("./markdownFiles/" + mdfile));
+    SaveFileGenerator make = new SaveFileGenerator();
+    make.createSaveFile(fileCards, "./saveFiles/" + oldfile);
+    } catch (IllegalStateException | NoSuchElementException e) {
+      System.out.println("System.in was closed");
+    }
   }
   
   public void addViaTerminal() {
@@ -85,9 +101,18 @@ public class Settings {
   }
   
   public void settingsMenu() {
-    System.out.println("This is the Settings menu!");
-    System.out.println("You will now make a new file from Markdown.");
-    addNewFile();
+    Scanner scanner = new Scanner(System.in);
+    try {
+      System.out.println("Do you want to create a new file or add to an existing one? [new/add]");
+      String line = scanner.nextLine();
+      if ((line.equals("new")) || (line.equals("New"))) {
+        addNewFile();
+      } else if ((line.equals("add")) || (line.equals("Add"))) {
+        addViaMarkdown();
+      }
+    } catch (IllegalStateException | NoSuchElementException e) {
+      System.out.println("System.in was closed");
+    }
   }
   
   public static void main(String[] args) {
