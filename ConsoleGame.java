@@ -13,6 +13,18 @@ public class ConsoleGame {
     }
   }
   
+  public void printTitle(LearningCard card, int i, int s) {
+    if (card.getClass().getSimpleName().equals("SimpleCard")) {
+      String title = "" + i; 
+      System.out.printf("\n%s %s\t\t%s %d/%d %s %d%s\n", "Card:", title, makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
+    } else if (card.getClass().getSimpleName().equals("QuestionCard")) {
+      String title = card.getFrontContent().get(0);
+      System.out.printf("\n%s %s\t%s %d/%d %s %d%s\n", "Card:", title, makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
+    } else {
+     System.out.printf("Unknown Card Type");
+    }
+  }
+  
   public String makeProgressBar(int curr, int goal) {
     String progressBar = "[";
     for(int i = 0; i < curr; i++) {
@@ -32,7 +44,7 @@ public class ConsoleGame {
     try {
       for (int i = 0; i < s; i++) {
         LearningCard card = cards.get(i);
-        System.out.printf("\n%s %s\t\t%s %d/%d %s %d%s\n", "Card:", getTitle(card, i), makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
+        printTitle(card, i, s);
         System.out.printf("%s\t%s\n", "  Question: ", card.getFrontContent().get(0));
         System.out.printf("%s\t","  Your Answer: ");
         String line = scanner.nextLine();
