@@ -38,6 +38,6 @@ replace "[path]" with the path to the parents folder which this folder ("se-lear
 
 1. open folder "com" in Terminal
 2. execute:
-     javac -classpath "/home/uni/Documents/se/semesterprojekt/se-learning-cards/com/" LearningCardGame.java
+     javac -classpath "/[path]/se-learning-cards/com/" LearningCardGame.java
 3. execute:
-     java -classpath "/home/uni/Documents/se/semesterprojekt/se-learning-cards/com/" LearningCardGame
+     java -classpath "/[path]/se-learning-cards/com/" LearningCardGame
