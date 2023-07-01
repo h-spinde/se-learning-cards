@@ -25,7 +25,6 @@ public class ConsoleGame {
       System.out.printf("\n%s %s\t%s %d/%d %s %d%s\n", "Card:", title, makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
     } else if (card.getClass().getSimpleName().equals("QuestionCard")) {
       String title = card.getFrontContent().get(0);
-      System.out.println(title);
       System.out.printf("\n%s %s\t%s %d/%d %s %d%s\n", "Card:", title, makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
     } else {
      System.out.printf("Unknown Card Type");
@@ -51,7 +50,7 @@ public class ConsoleGame {
     } else if (card.getClass().getSimpleName().equals("QuestionCard")) {
       System.out.printf("%s\t%s\n", "  Question: ", card.getFrontContent().get(1));
     } else {
-     System.out.printf("Unknown Card Type");
+     System.out.printf("!Unknown Card Type\n");
     }
   }
   
