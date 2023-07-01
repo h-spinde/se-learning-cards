@@ -7,6 +7,9 @@ public class Settings {
 
   public void fileFromMarkdown() {
     Scanner scanner = new Scanner(System.in);
+    String filePath = System.getProperty("user.dir");
+    filePath = filePath.substring(0, filePath.length() - 4);
+    filePath += "/files/";
     try {
       System.out.println("Please make sure there is a properly formatted Markdown file in the folder markdownFiles.");
       System.out.print("Please enter the file name: ");
@@ -14,10 +17,23 @@ public class Settings {
       System.out.print("Please enter the name the new Save File should have: ");
       String savefile = scanner.nextLine();
       SaveFileGenerator h = new SaveFileGenerator();
-      h.saveFileFromMarkdown("./markdownFiles/" + mdfile, "./saveFiles/" + savefile);
+      h.saveFileFromMarkdown(filePath + "markdownFiles/" + mdfile, filePath + "saveFiles/" + savefile);
     } catch (IllegalStateException | NoSuchElementException e) {
       System.out.println("System.in was closed");
     }
+  }
+  
+  public List<LearningCard> loadCardFile(String file_path) {
+    String filePath = System.getProperty("user.dir");
+    filePath = filePath.substring(0, filePath.length() - 4);
+    return SaveFileLoader.loadCardFile(filePath + "/files/saveFiles/" + file_path);
+  }
+  
+  public void createSaveFile(List<LearningCard> cards, String filename) {
+    String filePath = System.getProperty("user.dir");
+    filePath = filePath.substring(0, filePath.length() - 4);
+    SaveFileGenerator h = new SaveFileGenerator();
+    h.createSaveFile(cards, filePath + "/files/saveFiles/" + filename);
   }
   
   public LearningCard addCard() {
@@ -60,8 +76,7 @@ public class Settings {
           more = false;
         }
       }
-      SaveFileGenerator make = new SaveFileGenerator();
-      make.createSaveFile(fileCards, "./saveFiles/" + name);
+      createSaveFile(fileCards, name);
     } catch (IllegalStateException | NoSuchElementException e) {
       System.out.println("System.in was closed");
     }
@@ -75,11 +90,13 @@ public class Settings {
       String mdfile = scanner.nextLine();
       System.out.print("Please enter the Save File you want to add to: ");
       String oldfile = scanner.nextLine();
+      //Scanner scanner = new Scanner(System.in);
+      String filePath = System.getProperty("user.dir");
+      filePath = filePath.substring(0, filePath.length() - 4);
       List<LearningCard> fileCards = new ArrayList();
-      fileCards = SaveFileLoader.loadCardFile("./saveFiles/" + oldfile);
-      fileCards.addAll(MarkdownLoader.loadCardFile("./markdownFiles/" + mdfile));
-      SaveFileGenerator make = new SaveFileGenerator();
-      make.createSaveFile(fileCards, "./saveFiles/" + oldfile);
+      fileCards = loadCardFile(oldfile);
+      fileCards.addAll(MarkdownLoader.loadCardFile(filePath + "/files/markdownFiles/" + mdfile));
+      createSaveFile(fileCards, oldfile);
     } catch (IllegalStateException | NoSuchElementException e) {
       System.out.println("System.in was closed");
     }
@@ -92,7 +109,7 @@ public class Settings {
       System.out.print("Please enter the Save File you want to add to: ");
       String oldfile = scanner.nextLine();
       List<LearningCard> fileCards = new ArrayList();
-      fileCards = SaveFileLoader.loadCardFile("./saveFiles/" + oldfile);
+      fileCards = loadCardFile(oldfile);
       while (more) {
         System.out.print("Do you want to add another card? [y/N] ");
         String line = scanner.nextLine();
@@ -104,8 +121,7 @@ public class Settings {
           more = false;
         }
       }
-      SaveFileGenerator make = new SaveFileGenerator();
-      make.createSaveFile(fileCards, "./saveFiles/" + oldfile);
+      createSaveFile(fileCards, oldfile);
     } catch (IllegalStateException | NoSuchElementException e) {
       System.out.println("System.in was closed");
     }

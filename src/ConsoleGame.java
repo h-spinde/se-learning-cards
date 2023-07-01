@@ -17,8 +17,12 @@ public class ConsoleGame {
   
   public void printTitle(LearningCard card, int i, int s) {
     if (card.getClass().getSimpleName().equals("SimpleCard")) {
-      String title = "" + i; 
-      System.out.printf("\n%s %s\t\t%s %d/%d %s %d%s\n", "Card:", title, makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
+      String title = "";
+      if (i < 10) {
+        title += 0;
+      }
+      title += i;
+      System.out.printf("\n%s %s\t%s %d/%d %s %d%s\n", "Card:", title, makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
     } else if (card.getClass().getSimpleName().equals("QuestionCard")) {
       String title = card.getFrontContent().get(0);
       System.out.println(title);
@@ -71,10 +75,12 @@ public class ConsoleGame {
   
   public void play(String oldfile, String newfile) {
     List<LearningCard> fileCards = new ArrayList();
-    fileCards = SaveFileLoader.loadCardFile("./saveFiles/" + oldfile);
+    String filePath = System.getProperty("user.dir");
+    filePath = filePath.substring(0, filePath.length() - 4);
+    fileCards = SaveFileLoader.loadCardFile(filePath + "/files/saveFiles/" + oldfile);
     printCardsToConsole(fileCards);
     SaveFileGenerator newFile = new SaveFileGenerator();
-    newFile.createSaveFile(fileCards, "./saveFiles/" + newfile);
+    newFile.createSaveFile(fileCards, filePath + "/files/saveFiles/" + newfile);
   }
   
   public void play(String filename) {
