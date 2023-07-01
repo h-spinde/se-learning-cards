@@ -24,13 +24,9 @@ public abstract class LearningCard {
   */
   public abstract void printToConsole();
     
-  public void upCounter() {
-    this.counter ++;
-  }
+  public abstract void upCounter();
     
-  public int getCounter() {
-    return this.counter;
-  }
+  public abstract int getCounter();
   
   public String removeEmptyLine(String myString) {
     while (myString.startsWith("\n")) {

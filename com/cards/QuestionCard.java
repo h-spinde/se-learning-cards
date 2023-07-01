@@ -9,7 +9,7 @@ public class QuestionCard extends LearningCard {
   private String title;
   private String front;
   private String back;
-  private int counter = 0;
+  private int counter;
     
   public QuestionCard(String ttl, String question, String answer) {
     this.title = removeEmptyLine(ttl);
@@ -50,5 +50,13 @@ public class QuestionCard extends LearningCard {
     System.out.println("the title of this card is: " + this.title);
     System.out.println("the front matter is: " + this.front);
     System.out.println("the back matter is: " + this.back);
+  }
+  
+  public void upCounter() {
+    this.counter += 1;
+  }
+    
+  public int getCounter() {
+    return this.counter;
   }
 }

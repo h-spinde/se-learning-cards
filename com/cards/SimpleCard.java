@@ -46,4 +46,12 @@ public class SimpleCard extends LearningCard {
     System.out.println("the back matter is: " + this.back);
   }
   
+  public void upCounter() {
+    this.counter += 1;
+  }
+    
+  public int getCounter() {
+    return this.counter;
+  }
+  
 }
