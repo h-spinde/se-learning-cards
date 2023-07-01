@@ -2,7 +2,7 @@ A program for creating Learning Cards from Markdown Files and testing them in te
 
 #Contents of README:
 See Line 8 - 30 for Syntax Instructions
-See Line 33 - 61 for Compiling & Execution Instructions
+See Line 33 - 43 for Compiling & Execution Instructions
 
 
 #Learning Card Markdown Syntax:
@@ -34,28 +34,10 @@ may be repeated an unlimited amount of times, in random order
 
 replace "[path]" with the path to the parents folder which this folder ("se-learning-cards") is in
 
-#REQUIREMENTS:
-- for "From Markdown": have .md file with Learning Cards according to Learning Card Syntax in folder "fileManipulation" or its subfolders
-- for "From Save File": have save file with Learning Cards (generated from .md or written in according Syntax) in folder "se-learning-cards/com/saveFiles" or its subfolders
-
 #From Markdown:
 
-1. open folder "fileManipulation" in Terminal
+1. open folder "com" in Terminal
 2. execute:
-     javac -classpath "/[path]/se-learning-cards/com/" SaveFileGenerator.java
+     javac -classpath "/home/uni/Documents/se/semesterprojekt/se-learning-cards/com/" LearningCardGame.java
 3. execute:
-     java -classpath "/[path]/se-learning-cards/com/" fileManipulation.SaveFileGenerator
-4. move newly generated "example" file to "/com/saveFiles/"
-
-then resume: "From Save File" Step 3
-
-#From Save File
-
-1. open filder "fileManipulation" in Terminal
-2. execute:
-     javac -classpath "/home/uni/Documents/se/se-learning-cards/com/" SaveFileGenerator.java
-3. open folder "com" in Terminal
-4. execute:
-     javac -classpath "/[path]/se-learning-cards/com" ConsoleGame.java
-5. execute:
-     java -classpath "/[path]/se-learning-cards/com/" ConsoleGame
+     java -classpath "/home/uni/Documents/se/semesterprojekt/se-learning-cards/com/" LearningCardGame

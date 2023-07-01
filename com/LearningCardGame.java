@@ -19,14 +19,20 @@ public class LearningCardGame {
   
   public void askWhatToDo() {
     Scanner scanner = new Scanner(System.in);
+    boolean continueplaying = true;
     try {
-      System.out.print("Do you want to play (p), go to settings/edits (s) or leave (x)? [p/s/x] ");
-      String line = scanner.nextLine();
-      if ((line.equals("p")) || (line.equals("P")) || (line.equals("Play")) || (line.equals("play"))) {
-        playGame();
-      } else if ((line.equals("s")) || (line.equals("S")) || (line.equals("Settings")) || (line.equals("settings"))) {
-        Settings settings = new Settings();
-        settings.settingsMenu();
+      while (continueplaying)
+      {
+        System.out.print("Do you want to play (p), go to settings/edits (s) or leave (x)? [p/s/X] ");
+        String line = scanner.nextLine();
+        if ((line.equals("p")) || (line.equals("P")) || (line.equals("Play")) || (line.equals("play"))) {
+          playGame();
+        } else if ((line.equals("s")) || (line.equals("S")) || (line.equals("Settings")) || (line.equals("settings"))) {
+          Settings settings = new Settings();
+          settings.settingsMenu();
+        } else {
+          continueplaying = false;
+        }
       }
     } catch (IllegalStateException | NoSuchElementException e) {
       System.out.println("System.in was closed");

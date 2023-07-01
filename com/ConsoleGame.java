@@ -21,7 +21,8 @@ public class ConsoleGame {
       System.out.printf("\n%s %s\t\t%s %d/%d %s %d%s\n", "Card:", title, makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
     } else if (card.getClass().getSimpleName().equals("QuestionCard")) {
       String title = card.getFrontContent().get(0);
-      System.out.printf("\n%s %s%s %d/%d %s %d%s\n", "Card:", title, makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
+      System.out.println(title);
+      System.out.printf("\n%s %s\t%s %d/%d %s %d%s\n", "Card:", title, makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
     } else {
      System.out.printf("Unknown Card Type");
     }
@@ -40,6 +41,16 @@ public class ConsoleGame {
     return progressBar;
   }
   
+  public void printFrontSide(LearningCard card) {
+    if (card.getClass().getSimpleName().equals("SimpleCard")) {
+      System.out.printf("%s\t%s\n", "  Question: ", card.getFrontContent().get(0));
+    } else if (card.getClass().getSimpleName().equals("QuestionCard")) {
+      System.out.printf("%s\t%s\n", "  Question: ", card.getFrontContent().get(1));
+    } else {
+     System.out.printf("Unknown Card Type");
+    }
+  }
+  
   public void printCardsToConsole(List<LearningCard> cards) {
     Scanner scanner = new Scanner(System.in);
     int s = cards.size();
@@ -47,7 +58,7 @@ public class ConsoleGame {
       for (int i = 0; i < s; i++) {
         LearningCard card = cards.get(i);
         printTitle(card, i, s);
-        System.out.printf("%s\t%s\n", "  Question: ", card.getFrontContent().get(0));
+        printFrontSide(card);
         System.out.printf("%s\t","  Your Answer: ");
         String line = scanner.nextLine();
         System.out.printf("%s\t%s\n","  Solution: ", card.getBackContent().get(0));
