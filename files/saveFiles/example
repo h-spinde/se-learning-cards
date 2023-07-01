@@ -1,112 +1,47 @@
 THIS FILE is meant to be read for the Console LearningCard Game only
 
 ##SimpleCard
-#Welcher Berg ist der höchste Berg der Welt?
-#Mount Everest
-1
+#This is a Card of Card Type One. This Line contains the Front Matter.
+#And on this line you can find the Back Matter. A few examples will follow.
+0
 
 ##SimpleCard
-#Wie nennst du ein männliches Schwein?
-#Eber
-1
+#Who wrote the Narnia books?
+#C. S. Lewis
+0
 
 ##SimpleCard
-#Wie viele Oscars gewann der Film Titanic?
-#11 Oscars
-1
+#The book "On Writing" is a memoir by ...
+#Stephen King
+0
 
 ##SimpleCard
-#Wie heißen die besten Freunde von „Harry Potter“?
-#Hermine Granger und Ron Weasley
-1
+#The .md files should be saved in which folder?
+#files/markdownFiles/
+0
 
-##SimpleCard
-#Wann wurde Queen Elisabeth II. zur Königin gekrönt?
-#1953
-1
+##QuestionCard
+#The Second Type of Question can have titles like this one
+#This is where you put Front content 
+And here you can put front content too.
+#Back matter can go here
+0
 
-##SimpleCard
-#Aus wie vielen Einzelknochen besteht eine menschliche Hand?
-#27
-1
+##QuestionCard
+#Hitchhiker's Guide
+#Who invented the moon? 
+#Stupid question, mice of course! 
+0
 
-##SimpleCard
-#Was ist ein Sonett ?
-#Eine Gedichtform
-1
+##QuestionCard
+#Hitchhiker's Guide
+#What is the most important item to bring everywhere? 
+#A towel!
+0
 
-##SimpleCard
-#Wofür stehen die olympischen Ringe?
-#Für die 5 Kontinente
-1
-
-##SimpleCard
-#Wer war der erste Präsident der Vereinigten Staaten von Amerika?
-#George Washington
-1
-
-##SimpleCard
-#Wie viele Bundesländer hat Deutschland?
-#16
-1
-
-##SimpleCard
-#Frage 1
-#Wie viele Weihnachtsbäume werden in Deutschland pro Jahr verkauft? 
-#Antwort: 30 Millionen
-1
-
-##SimpleCard
-#Frage 2
-#Welche Vögel legen niemals Eier? 
-#Antwort: männliche Vögel
-1
-
-##SimpleCard
-#Frage 3
-#Welcher Planet unseres Sonnensystems ist der Sonne am nächsten? 
-#Antwort: Merkur
-1
-
-##SimpleCard
-#Frage 4
-#Wie viele Tasten hat ein Klavier? 
-#Antwort: 88
-1
-
-##SimpleCard
-#Frage 5
-#Woraus besteht ein Diamant? 
-#Antwort: Aus Kohlenstoff
-1
-
-##SimpleCard
-#Frage 6
-#An welchem Tag fiel die Berliner Mauer ? 
-#Antwort: am 9. November 1989
-1
-
-##SimpleCard
-#Frage 7
-#Wie heißt die gesetzgebende Gewalt ? 
-#Antwort: Legislative
-1
-
-##SimpleCard
-#Frage 8
-#Wie hoch hängt ein Basketballkorb? 
-#Antwort: 3,05 Meter
-1
-
-##SimpleCard
-#Frage 9
-#Was bedeutet der lateinische Spruch „Carpe Diem“? 
-#Antwort: Nutze den Tag!
-1
-
-##SimpleCard
-#Frage 10
-#Wie nennt ein Berliner ein Brötchen? 
-#Antwort: Schrippe
-1
+##QuestionCard
+#Last Example
+#Can you guess how many more examples will follow this one?
+#0!
+0
 
