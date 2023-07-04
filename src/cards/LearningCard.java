@@ -9,6 +9,7 @@ public abstract class LearningCard {
   private String front;
   private String back;
   private int counter;
+  private int rightInARow;
   
   /** return the front site of the card */
   public abstract List<String> getFrontContent();
@@ -37,5 +38,11 @@ public abstract class LearningCard {
     }
     return myString;
   }
+  
+  public abstract void isRight();
+  
+  public abstract void isWrong();
+  
+  public abstract int getRow();
   
 }
