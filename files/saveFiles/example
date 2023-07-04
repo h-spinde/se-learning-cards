@@ -4,20 +4,24 @@ THIS FILE is meant to be read for the Console LearningCard Game only
 #This is a Card of Card Type One. This Line contains the Front Matter.
 #And on this line you can find the Back Matter. A few examples will follow.
 0
+0
 
 ##SimpleCard
 #Who wrote the Narnia books?
 #C. S. Lewis
+0
 0
 
 ##SimpleCard
 #The book "On Writing" is a memoir by ...
 #Stephen King
 0
+0
 
 ##SimpleCard
 #The .md files should be saved in which folder?
 #files/markdownFiles/
+0
 0
 
 ##QuestionCard
@@ -26,11 +30,13 @@ THIS FILE is meant to be read for the Console LearningCard Game only
 And here you can put front content too.
 #Back matter can go here
 0
+0
 
 ##QuestionCard
 #Hitchhiker's Guide
 #Who invented the moon? 
 #Stupid question, mice of course! 
+0
 0
 
 ##QuestionCard
@@ -38,10 +44,12 @@ And here you can put front content too.
 #What is the most important item to bring everywhere? 
 #A towel!
 0
+0
 
 ##QuestionCard
 #Last Example
 #Can you guess how many more examples will follow this one?
 #0!
+0
 0
 

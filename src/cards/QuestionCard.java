@@ -10,12 +10,14 @@ public class QuestionCard extends LearningCard {
   private String front;
   private String back;
   private int counter;
+  private int rightInARow;
     
   public QuestionCard(String ttl, String question, String answer) {
     this.title = removeEmptyLine(ttl);
     this.front = removeEmptyLine(question);
     this.back = removeEmptyLine(answer);
     this.counter = 0;
+    this.rightInARow = 0;
   }
     
   public QuestionCard(String ttl, String question, String answer, int count) {
@@ -23,6 +25,15 @@ public class QuestionCard extends LearningCard {
     this.front = removeEmptyLine(question);
     this.back = removeEmptyLine(answer);
     this.counter = count;
+    this.rightInARow = 0;
+  }
+  
+  public QuestionCard(String ttl, String question, String answer, int count, int row) {
+    this.title = removeEmptyLine(ttl);
+    this.front = removeEmptyLine(question);
+    this.back = removeEmptyLine(answer);
+    this.counter = count;
+    this.rightInARow = row;
   }
     
   public List<String> getFrontContent() {
@@ -58,5 +69,17 @@ public class QuestionCard extends LearningCard {
     
   public int getCounter() {
     return this.counter;
+  }
+  
+  public void isRight() {
+    this.rightInARow ++;
+  }
+  
+  public void isWrong() {
+    this.rightInARow = 0;
+  }
+  
+  public int getRow() {
+    return this.rightInARow;
   }
 }

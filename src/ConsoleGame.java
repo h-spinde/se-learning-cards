@@ -22,10 +22,12 @@ public class ConsoleGame {
         title += 0;
       }
       title += i;
-      System.out.printf("\n%s %s\t%s %d/%d %s %d%s\n", "Card:", title, makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
+      System.out.printf("\n%s %s\t%s %d/%d\n", "Card:", title, makeProgressBar(i, s), i, s-1);
+      System.out.printf("\t\t%s %d%s %d\n", "Times tested:", card.getCounter(), " - Times right in a row:", card.getRow());
     } else if (card.getClass().getSimpleName().equals("QuestionCard")) {
       String title = card.getFrontContent().get(0);
-      System.out.printf("\n%s %s\t%s %d/%d %s %d%s\n", "Card:", title, makeProgressBar(i, s), i, s-1, "- being quizzed for the", card.getCounter()+1, "th time");
+      System.out.printf("\n%s %s\t%s %d/%d\n", "Card:", title, makeProgressBar(i, s), i, s-1);
+      System.out.printf("\t\t%s %d%s %d\n", "Times tested:", card.getCounter(), " - Times right in a row:", card.getRow());
     } else {
      System.out.printf("Unknown Card Type");
     }
@@ -54,6 +56,14 @@ public class ConsoleGame {
     }
   }
   
+  public void cardResult(String result, LearningCard card) {
+    if ((result.equals("y")) || (result.equals("Y"))) {
+      card.isRight();
+    } else {
+      card.isWrong();
+    }
+  }
+  
   public void printCardsToConsole(List<LearningCard> cards) {
     Scanner scanner = new Scanner(System.in);
     int s = cards.size();
@@ -65,6 +75,10 @@ public class ConsoleGame {
         System.out.printf("%s\t","  Your Answer: ");
         String line = scanner.nextLine();
         System.out.printf("%s\t%s\n","  Solution: ", card.getBackContent().get(0));
+        System.out.println("");
+        System.out.print("Was your solution correct? [y/N] ");
+        cardResult(line, card);
+        line = scanner.nextLine();
         card.upCounter();
       }
     } catch (IllegalStateException | NoSuchElementException e) {

@@ -159,6 +159,18 @@ public class Settings {
     }
   }
   
+  public void debugFunctionalities() {
+    Scanner scanner = new Scanner(System.in);
+    try {
+      String line = scanner.nextLine();
+      if (line.equals("set date today")) {
+        //TODO: Set date for all cards to today in duplicate file
+      }
+    } catch (IllegalStateException | NoSuchElementException e) {
+      System.out.println("System.in was closed");
+    }
+  }
+  
   public void settingsMenu() {
     Scanner scanner = new Scanner(System.in);
     try {
@@ -169,6 +181,8 @@ public class Settings {
         newFile();
       } else if ((line.equals("add")) || (line.equals("Add"))) {
         addToFile();
+      } else if ((line.equals("debug"))) {
+        debugFunctionalities();
       }
     } catch (IllegalStateException | NoSuchElementException e) {
       System.out.println("System.in was closed");
