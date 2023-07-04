@@ -11,8 +11,7 @@ public class Settings {
     filePath = filePath.substring(0, filePath.length() - 4);
     filePath += "/files/";
     try {
-      System.out.println("Please make sure there is a properly formatted Markdown file in the folder markdownFiles.");
-      System.out.print("Please enter the file name: ");
+      System.out.println("Please make sure there is a properly formatted Markdown file in the folder markdownFiles and enter the file name here: ");
       String mdfile = scanner.nextLine();
       System.out.print("Please enter the name the new Save File should have: ");
       String savefile = scanner.nextLine();
@@ -63,9 +62,11 @@ public class Settings {
     boolean more = true;
     try {
       List<LearningCard> fileCards = new ArrayList();
+      System.out.println("");
       System.out.print("Please enter a name for the new file: ");
       String name = scanner.nextLine();
       while (more) {
+        System.out.println("");
         System.out.print("Do you want to add another card? [y/N] ");
         String line = scanner.nextLine();
         if ((line.equals("y")) || (line.equals("Y"))) {
@@ -85,8 +86,7 @@ public class Settings {
   public void addViaMarkdown() {
     Scanner scanner = new Scanner(System.in);
     try {
-      System.out.println("Please make sure there is a properly formatted Markdown file in the folder markdownFiles.");
-      System.out.print("Please enter the file name: ");
+      System.out.println("Please make sure there is a properly formatted Markdown file in the folder markdownFiles and enter the file name: ");
       String mdfile = scanner.nextLine();
       System.out.print("Please enter the Save File you want to add to: ");
       String oldfile = scanner.nextLine();
@@ -106,11 +106,13 @@ public class Settings {
     Scanner scanner = new Scanner(System.in);
     boolean more = true;
     try {
+      System.out.println("");
       System.out.print("Please enter the Save File you want to add to: ");
       String oldfile = scanner.nextLine();
       List<LearningCard> fileCards = new ArrayList();
       fileCards = loadCardFile(oldfile);
       while (more) {
+        System.out.println("");
         System.out.print("Do you want to add another card? [y/N] ");
         String line = scanner.nextLine();
         if ((line.equals("y")) || (line.equals("Y"))) {
@@ -145,7 +147,7 @@ public class Settings {
   public void addToFile() {
     Scanner scanner = new Scanner(System.in);
     try {
-      System.out.println("Do you want to add cards from a Markdown file or in the Terminal? [m/t]");
+      System.out.println("Do you want to add cards from a Markdown file or in the Terminal? [m/t/Exit]");
       String line = scanner.nextLine();
       if ((line.equals("m")) || (line.equals("M"))) {
         addViaMarkdown();
@@ -160,7 +162,8 @@ public class Settings {
   public void settingsMenu() {
     Scanner scanner = new Scanner(System.in);
     try {
-      System.out.println("Do you want to create a new file or add to an existing one? [new/add]");
+      System.out.println("");
+      System.out.println("Do you want to create a new file or add to an existing one? [new/add/Exit]");
       String line = scanner.nextLine();
       if ((line.equals("new")) || (line.equals("New"))) {
         newFile();

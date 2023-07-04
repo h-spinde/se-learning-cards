@@ -8,6 +8,7 @@ public class LearningCardGame {
   public void playGame() {
     Scanner scanner = new Scanner(System.in);
     try {
+      System.out.println("");
       System.out.print("Which Cards do you want to test? Please enter the Save File name: ");
       String line = scanner.nextLine();
       ConsoleGame fun = new ConsoleGame();
@@ -23,7 +24,12 @@ public class LearningCardGame {
     try {
       while (continueplaying)
       {
-        System.out.print("Do you want to play (p), go to settings/edits (s) or leave (x)? [p/s/X] ");
+        System.out.println("");
+        System.out.println("What do you want to do next?");
+        System.out.println("p: play with your current learning cards");
+        System.out.println("s: go to settings or edits");
+        System.out.println("x: (default) exit the game");
+        System.out.print("Please enter: [p/s/X] ");
         String line = scanner.nextLine();
         if ((line.equals("p")) || (line.equals("P")) || (line.equals("Play")) || (line.equals("play"))) {
           playGame();

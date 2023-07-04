@@ -73,6 +73,7 @@ public class ConsoleGame {
   }
   
   public void play(String oldfile, String newfile) {
+    System.out.println("Playing Collection \"" + oldfile + "\":");
     List<LearningCard> fileCards = new ArrayList();
     String filePath = System.getProperty("user.dir");
     filePath = filePath.substring(0, filePath.length() - 4);
