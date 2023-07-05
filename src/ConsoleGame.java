@@ -22,11 +22,11 @@ public class ConsoleGame {
         title += 0;
       }
       title += i;
-      System.out.printf("\n%s %s\t%s %d/%d\n", "Card:", title, makeProgressBar(i, s), i, s-1);
+      System.out.printf("\n%s %s\t%s %d/%d\n", "Card:", title, makeProgressBar(i, s), i+1, s);
       System.out.printf("\t\t%s %d%s %d\n", "Times tested:", card.getCounter(), " - Times right in a row:", card.getRow());
     } else if (card.getClass().getSimpleName().equals("QuestionCard")) {
       String title = card.getFrontContent().get(0);
-      System.out.printf("\n%s %s\t%s %d/%d\n", "Card:", title, makeProgressBar(i, s), i, s-1);
+      System.out.printf("\n%s %s\t%s %d/%d\n", "Card:", title, makeProgressBar(i, s), i+1, s);
       System.out.printf("\t\t%s %d%s %d\n", "Times tested:", card.getCounter(), " - Times right in a row:", card.getRow());
     } else {
      System.out.printf("Unknown Card Type");
@@ -48,9 +48,9 @@ public class ConsoleGame {
   
   public void printFrontSide(LearningCard card) {
     if (card.getClass().getSimpleName().equals("SimpleCard")) {
-      System.out.printf("%s\t%s\n", "  Question: ", card.getFrontContent().get(0));
+      System.out.printf("%s\t%s\n", "  Question: ", card.getFrontContent().get(0).replace(String.valueOf("\n"), "\n            \t"));
     } else if (card.getClass().getSimpleName().equals("QuestionCard")) {
-      System.out.printf("%s\t%s\n", "  Question: ", card.getFrontContent().get(1));
+      System.out.printf("%s\t%s\n", "  Question: ", card.getFrontContent().get(1).replace(String.valueOf("\n"), "\n            \t"));
     } else {
      System.out.printf("!Unknown Card Type\n");
     }
@@ -98,7 +98,7 @@ public class ConsoleGame {
         printFrontSide(card);
         System.out.printf("%s\t","  Your Answer: ");
         String line = scanner.nextLine();
-        System.out.printf("%s\t%s\n","  Solution: ", card.getBackContent().get(0));
+        System.out.printf("%s\t%s\n","  Solution: ", card.getBackContent().get(0).replace(String.valueOf("\n"), "\n            \t"));
         System.out.println("");
         System.out.print("Was your solution correct? [y/N] ");
         line = scanner.nextLine();
@@ -127,6 +127,6 @@ public class ConsoleGame {
   
   public static void main(String[] args) {
     ConsoleGame fun = new ConsoleGame();
-      fun.play("example");
+    fun.play("example");
   }
 }
