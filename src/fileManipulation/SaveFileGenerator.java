@@ -37,7 +37,8 @@ public class SaveFileGenerator {
    } else {
      System.out.println("There's an error with the card type! It is " + card.getClass().getSimpleName());
    }
-   r += card.getCounter() + "\n" + card.getRow();
+   int[] date = card.getDate();
+   r += date[0] + "," + date[1] + "," + date[2] + "\n" + card.getCounter() + "\n" + card.getRow();
    return r;
   }
   

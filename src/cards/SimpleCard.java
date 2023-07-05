@@ -9,13 +9,15 @@ public class SimpleCard extends LearningCard {
   private String front;
   private String back;
   private int counter;
-  private int rightInARow;;
+  private int rightInARow;
+  private int[] nextDate;
     
   public SimpleCard(String question, String answer) {
     this.front = removeEmptyLine(question);
     this.back = removeEmptyLine(answer);
     this.counter = 0;
     this.rightInARow = 0;
+    this.nextDate = getTodaysDate();
   }
     
   public SimpleCard(String question, String answer, int count) {
@@ -23,6 +25,7 @@ public class SimpleCard extends LearningCard {
     this.back = removeEmptyLine(answer);
     this.counter = count;
     this.rightInARow = 0;
+    this.nextDate = getTodaysDate();
   }
   
   public SimpleCard(String question, String answer, int count, int row) {
@@ -30,6 +33,15 @@ public class SimpleCard extends LearningCard {
     this.back = removeEmptyLine(answer);
     this.counter = count;
     this.rightInARow = row;
+    this.nextDate = getTodaysDate();
+  }
+  
+  public SimpleCard(String question, String answer, int count, int row, int[] date) {
+    this.front = removeEmptyLine(question);
+    this.back = removeEmptyLine(answer);
+    this.counter = count;
+    this.rightInARow = row;
+    this.nextDate = date;
   }
     
   public List<String> getFrontContent() {
@@ -64,18 +76,26 @@ public class SimpleCard extends LearningCard {
     return this.counter;
   }
   
-  
-  
   public void isRight() {
+    this.nextDate = getNextDate(this.rightInARow);
     this.rightInARow ++;
   }
   
   public void isWrong() {
     this.rightInARow = 0;
+    this.nextDate = getTodaysDate();
   }
   
   public int getRow() {
     return this.rightInARow;
+  }
+  
+  public int[] getDate() {
+    return this.nextDate;
+  }
+  
+  public void setToday() {
+    this.nextDate = getTodaysDate();
   }
   
 }

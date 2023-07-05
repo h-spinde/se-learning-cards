@@ -164,7 +164,16 @@ public class Settings {
     try {
       String line = scanner.nextLine();
       if (line.equals("set date today")) {
-        //TODO: Set date for all cards to today in duplicate file
+        System.out.println("file name: ");
+        line = scanner.nextLine();
+        List<LearningCard> fileCards = new ArrayList();
+        fileCards = loadCardFile(line);
+        for (LearningCard card : fileCards) {
+          card.setToday();
+        }
+        System.out.println("file name: ");
+        line = scanner.nextLine();
+        createSaveFile(fileCards, line);
       }
     } catch (IllegalStateException | NoSuchElementException e) {
       System.out.println("System.in was closed");

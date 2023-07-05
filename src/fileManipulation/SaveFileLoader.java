@@ -45,7 +45,7 @@ public class SaveFileLoader {
     myString[0] = (list.get(begin)).replace(String.valueOf("#"), "");
     begin ++;
     int i = 0;
-    while ((begin < end-3) && (i == 0)) {
+    while ((begin < end-4) && (i == 0)) {
       if ((list.get(begin)).contains("#")) {
         i++;
       } else {
@@ -55,7 +55,7 @@ public class SaveFileLoader {
     }
     myString[1] = (list.get(begin)).replace(String.valueOf("#"), "");
     begin ++;
-    while (begin < end-3) {
+    while (begin < end-4) {
       myString[1] += "\n" + list.get(begin);
       begin ++;
     }
@@ -70,7 +70,7 @@ public class SaveFileLoader {
     myString[1] = (list.get(begin)).replace(String.valueOf("#"), "");
     begin ++;
     int i = 0;
-    while ((begin < end-3) && (i == 0)) {
+    while ((begin < end-4) && (i == 0)) {
       if ((list.get(begin)).contains("#")) {
         i++;
       } else {
@@ -80,23 +80,31 @@ public class SaveFileLoader {
     }
     myString[2] = (list.get(begin)).replace(String.valueOf("#"), "");
     begin ++;
-    while (begin < end-3) {
+    while (begin < end-4) {
       System.out.println(list.get(begin));
       myString[2] += "\n" + list.get(begin);
       begin ++;
     }
     return myString;
   }
+  
+  public static int[] makeDate(String string) {
+    String[] splitString = string.split(",", 0);
+    int[] date = {Integer.parseInt(splitString[0]), Integer.parseInt(splitString[1]), Integer.parseInt(splitString[2])};
+    return date;
+  }
    
   public static SimpleCard makeSimpleCard(List<String> list, int begin, int end) {
     String[] myString = makeSimpleArray(list, begin, end);
-    SimpleCard newCard = new SimpleCard(myString[0], myString[1], Integer.parseInt(list.get(end-3)), Integer.parseInt(list.get(end-2)));
+    int[] date = makeDate(list.get(end-4));
+    SimpleCard newCard = new SimpleCard(myString[0], myString[1], Integer.parseInt(list.get(end-3)), Integer.parseInt(list.get(end-2)), date);
     return newCard;
   }
    
   public static QuestionCard makeQuestionCard(List<String> list, int begin, int end) {
     String[] myString = makeQuestionArray(list, begin, end);
-    QuestionCard newCard = new QuestionCard(myString[0], myString[1], myString[2], Integer.parseInt(list.get(end-3)), Integer.parseInt(list.get(end-2)));
+    int[] date = makeDate(list.get(end-4));
+    QuestionCard newCard = new QuestionCard(myString[0], myString[1], myString[2], Integer.parseInt(list.get(end-3)), Integer.parseInt(list.get(end-2)), date);
     return newCard;
   }
    

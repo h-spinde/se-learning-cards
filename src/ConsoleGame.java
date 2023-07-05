@@ -64,12 +64,36 @@ public class ConsoleGame {
     }
   }
   
+  public List<LearningCard> findCardsToTestToday(List<LearningCard> cards) {
+    List<LearningCard> newCards = new ArrayList();
+    Calendar today = Calendar.getInstance();
+    int[] todaysDate = {today.get(Calendar.YEAR), today.get(Calendar.WEEK_OF_YEAR), today.get(Calendar.DAY_OF_WEEK)};
+    int s = cards.size();
+    for (int i = 0; i < s; i++) {
+      LearningCard card = cards.get(i);
+      int[] cardDate = card.getDate();
+      if (todaysDate[0] > cardDate[0]) {
+        newCards.add(card);
+      } else if (todaysDate[0] == cardDate[0]) {
+        if (todaysDate[1] > cardDate[1]) {
+          newCards.add(card);
+        } else if (todaysDate[1] == cardDate[1]) {
+          if (todaysDate[2] >= cardDate[2]) {
+            newCards.add(card);
+          }
+        }
+      }
+    }
+    return newCards;
+  }
+  
   public void printCardsToConsole(List<LearningCard> cards) {
     Scanner scanner = new Scanner(System.in);
-    int s = cards.size();
+    List<LearningCard> currentCards = findCardsToTestToday(cards);
+    int s = currentCards.size();
     try {
       for (int i = 0; i < s; i++) {
-        LearningCard card = cards.get(i);
+        LearningCard card = currentCards.get(i);
         printTitle(card, i, s);
         printFrontSide(card);
         System.out.printf("%s\t","  Your Answer: ");
@@ -77,8 +101,8 @@ public class ConsoleGame {
         System.out.printf("%s\t%s\n","  Solution: ", card.getBackContent().get(0));
         System.out.println("");
         System.out.print("Was your solution correct? [y/N] ");
-        cardResult(line, card);
         line = scanner.nextLine();
+        cardResult(line, card);
         card.upCounter();
       }
     } catch (IllegalStateException | NoSuchElementException e) {
