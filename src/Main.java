@@ -3,7 +3,7 @@ import java.nio.charset.*;
 import cards.*;
 import fileManipulation.*;
 
-public class LearningCardGame {
+public class Main {
 
   public void playGame() {
     Scanner scanner = new Scanner(System.in);
@@ -46,7 +46,7 @@ public class LearningCardGame {
   }
   
   public static void main(String[] args) {
-    LearningCardGame newGame = new LearningCardGame();
+    Main newGame = new Main();
     newGame.askWhatToDo();
   }
 }
