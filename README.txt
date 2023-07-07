@@ -36,6 +36,6 @@ replace "[path]" with the path to the parents folder which this folder ("se-lear
 
 1. open folder "src" in Terminal
 2. execute:
-     javac -classpath "/[path]/se-learning-cards/src/" LearningCardGame.java
+     javac -classpath "/[path]/se-learning-cards/src/" Main.java
 3. execute:
-     java -classpath "/[path]/se-learning-cards/src/" LearningCardGame
+     java -classpath "/[path]/se-learning-cards/src/" Main
