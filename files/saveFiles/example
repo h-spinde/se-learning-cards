@@ -3,24 +3,28 @@ THIS FILE is meant to be read for the Console LearningCard Game only
 ##SimpleCard
 #This is a Card of Card Type One. This Line contains the Front Matter.
 #And on this line you can find the Back Matter. A few examples will follow.
+2023,27,6
 0
 0
 
 ##SimpleCard
 #Who wrote the Narnia books?
 #C. S. Lewis
+2023,27,6
 0
 0
 
 ##SimpleCard
 #The book "On Writing" is a memoir by ...
 #Stephen King
+2023,27,6
 0
 0
 
 ##SimpleCard
 #The .md files should be saved in which folder?
 #files/markdownFiles/
+2023,27,6
 0
 0
 
@@ -29,6 +33,7 @@ THIS FILE is meant to be read for the Console LearningCard Game only
 #This is where you put Front content 
 And here you can put front content too.
 #Back matter can go here
+2023,27,6
 0
 0
 
@@ -36,6 +41,7 @@ And here you can put front content too.
 #Hitchhiker's Guide
 #Who invented the moon? 
 #Stupid question, mice of course! 
+2023,27,6
 0
 0
 
@@ -43,6 +49,7 @@ And here you can put front content too.
 #Hitchhiker's Guide
 #What is the most important item to bring everywhere? 
 #A towel!
+2023,27,6
 0
 0
 
@@ -50,6 +57,7 @@ And here you can put front content too.
 #Last Example
 #Can you guess how many more examples will follow this one?
 #0!
+2023,27,6
 0
 0
 
