@@ -81,7 +81,6 @@ public class SaveFileLoader {
     myString[2] = (list.get(begin)).replace(String.valueOf("#"), "");
     begin ++;
     while (begin < end-4) {
-      System.out.println(list.get(begin));
       myString[2] += "\n" + list.get(begin);
       begin ++;
     }
